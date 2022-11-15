@@ -1,5 +1,5 @@
-class SessionController < ApplicationController
-    
+class SessionsController < ApplicationController
+
     def new
 
         render :new
@@ -16,7 +16,7 @@ class SessionController < ApplicationController
         else
             render :new
         end
-        
+
     end
 
 
