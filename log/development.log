@@ -173,3 +173,143 @@ Did you mean?  logger?:
   app/views/layouts/application.html.erb:15
   app/controllers/sessions_controller.rb:5:in `new'
 
+Started GET "/session/new" for ::1 at 2022-11-14 17:07:47 -0800
+
+SyntaxError - syntax error, unexpected ':', expecting `end'
+    helper_method: :current_user, :logged_in?
+                 ^:
+  app/controllers/application_controller.rb:5:in `'
+  app/controllers/sessions_controller.rb:1:in `<top (required)>'
+
+Started GET "/session/new" for ::1 at 2022-11-14 17:07:54 -0800
+Processing by SessionsController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.3ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3650)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 4195)
+
+
+
+ArgumentError - Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.:
+  app/models/user.rb:18:in `<class:User>'
+  app/models/user.rb:12:in `<top (required)>'
+  app/controllers/application_controller.rb:8:in `current_user'
+  app/controllers/application_controller.rb:27:in `logged_in?'
+  app/controllers/application_controller.rb:6:in `logged_in?'
+  app/views/layouts/application.html.erb:15
+  app/controllers/sessions_controller.rb:5:in `new'
+
+Started GET "/session/new" for ::1 at 2022-11-14 17:09:12 -0800
+Processing by SessionsController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.1ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 4294)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 4840)
+
+
+
+ArgumentError - Unknown validator: 'AllowValidator':
+  app/models/user.rb:18:in `<class:User>'
+  app/models/user.rb:12:in `<top (required)>'
+  app/controllers/application_controller.rb:8:in `current_user'
+  app/controllers/application_controller.rb:27:in `logged_in?'
+  app/controllers/application_controller.rb:6:in `logged_in?'
+  app/views/layouts/application.html.erb:15
+  app/controllers/sessions_controller.rb:5:in `new'
+
+Started GET "/session/new" for ::1 at 2022-11-14 17:09:40 -0800
+Processing by SessionsController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.1ms | Allocations: 89)
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 5679)
+Completed 200 OK in 14ms (Views: 6.5ms | ActiveRecord: 7.0ms | Allocations: 6289)
+
+
+Started GET "/users/new" for ::1 at 2022-11-14 17:15:34 -0800
+Processing by UsersController#new as */*
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 224)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 5865)
+Completed 200 OK in 24ms (Views: 23.7ms | ActiveRecord: 8.6ms | Allocations: 6742)
+
+
+Started POST "/users?user[username]=johndoe&user[password]=[FILTERED]" for ::1 at 2022-11-14 17:16:31 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"johndoe", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 672)
+
+
+
+ActionController::InvalidAuthenticityToken - Can't verify CSRF token authenticity.:
+
+Started POST "/users?user[username]=johndoe&user[password]=[FILTERED]" for ::1 at 2022-11-14 17:17:21 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"johndoe", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 973)
+
+
+
+ArgumentError - wrong number of arguments (given 2, expected 0..1):
+  app/controllers/users_controller.rb:5:in `create'
+
+Started POST "/users?user[username]=johndoe&user[password]=[FILTERED]" for ::1 at 2022-11-14 17:19:36 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"johndoe", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 973)
+
+
+
+ArgumentError - wrong number of arguments (given 2, expected 0..1):
+  app/controllers/users_controller.rb:5:in `create'
+
+Started POST "/users?user[username]=johndoe&user[password]=[FILTERED]" for ::1 at 2022-11-14 17:20:54 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"johndoe", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1227)
+
+
+
+NoMethodError - undefined method `new' for nil:NilClass
+        user = user.new(params[:username], new_password)
+                   ^^^^:
+  app/controllers/users_controller.rb:5:in `create'
+
+Started POST "/users?user[username]=johndoe&user[password]=[FILTERED]" for ::1 at 2022-11-14 17:21:16 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"johndoe", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 973)
+
+
+
+ArgumentError - wrong number of arguments (given 2, expected 0..1):
+  app/controllers/users_controller.rb:5:in `create'
+
+Started POST "/users?user[username]=johndoe&user[password]=[FILTERED]" for ::1 at 2022-11-14 17:22:16 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"johndoe", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 973)
+
+
+
+ArgumentError - wrong number of arguments (given 2, expected 0..1):
+  app/controllers/users_controller.rb:5:in `create'
+
+Started POST "/users?user[username]=johndoe&user[password]=[FILTERED]" for ::1 at 2022-11-14 17:22:34 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"johndoe", "password"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 973)
+
+
+
+ArgumentError - wrong number of arguments (given 2, expected 0..1):
+  app/controllers/users_controller.rb:5:in `create'
+
