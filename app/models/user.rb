@@ -49,12 +49,16 @@ class User < ApplicationRecord
     end
 
     def reset_session_token!
-
+        session_token = generate_unique_session_token
+        session_token.save!
+        session_token
     end
 
     private
 
     def ensure_session_token
+
+        session_token ||= reset_session_token
 
     end
 end
